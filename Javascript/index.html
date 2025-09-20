@@ -39,24 +39,24 @@
 
     //////////////////////////////////////Creating the element/////////////////////////////////////////////////////////////////////////
 
-    const create = document.createElement('tagname')
+    const create = document.createElement('tagname') //jo bhi tagname dena ho like h1,div,span etc
     //Example =>  Create a div element 
     const send = document.createElement('div')
 
     //How to insert the Value inside div 
     tagname.innerHTML = 'jo bhi likhna ho'
-    //Example => div ke andar Tumhe apna name likhna hai 
+    //Example => send ke andar Tumhe apna name likhna hai 
     send.innerHTML = 'Chitranshi'
 
     ////////////////////////////////////Appened the Tag Inside another Tag ///////////////////////////////////////////////////////////////
 
-    //Example => Jaise body ke andar Tumhe div dalna hai jisme tumne apna naam likha hai 
+    //Example => Jaise body ke andar Tumhe send dalna hai jisme tumne apna naam likha hai 
     //Step 1 => pehle Body Fetch karke lao
     const body = document.querySelector('body')
 
-    //Step 2 => Tumhe div dalna hai jo ki create element section me create kiya hai (upar) (uska name send hai)
-    // kiske_tag_ke_andar_dalna_hai.appendChild(kya_dalna_hai)   
-    //Body (jo ki fetch kar liya) ke andar send(jo ki upar create karke uske andar tumhara name daal diya) dalna hai 
+    //Step 2 => Tumhe send dalna hai jo ki create element section me create kiya hai (upar) (uska name send hai)
+    // kis_tag_ke_andar_dalna_hai.appendChild(kya_dalna_hai)   
+    //Body (jo ki fetch kar liya) ke andar send(jo ki upar create karke uske andar tumhara name dala tha) dalna hai 
     body.appendChild(send)
 
     //////////////////////////////////How to set Style in tags///////////////////////////////////////////////////////////////////////////////////////
@@ -104,7 +104,7 @@
     const h1_ko_karna_hai_delete = document.querySelector('h1')
     //Step2 Jisko delete karna hai uske parent element ko nikalo
     const main_parent_hu = h1_ko_karna_hai_delete.parentElement
-    //Ab parent element jo hai wo main_parent_hu ke andar pda hai 
+    //Ab parent element jo hai wo main_parent_hu variable ke andar pda hai 
     //h1 jo hai wo parent ka child hai yani ab ek command hoti hai 
     // jo_bhi_parent_hai.removeChild(child_jisko_delete_karna_hai)
     main_parent_hu.removeChild(h1_ko_karna_hai_delete)
