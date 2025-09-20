@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // /////////////////////////////////////Selecting the Element///////////////////////////////////////////////////
+    
+    //By Class
+    const classname = document.getElementsByClassName('any class name')
+    
+    //By Id
+    const id = document.getElementById('any id name')
+    
+    //Using Queryselector  => It select only first element
+    //If select class
+    const classname1 = document.querySelector('.anyclassname')
+    
+    //If select id
+    const id1 = document.querySelector('.anyidname')
+    
+    //If select Tags
+    const tags = document.querySelector('.tagname')
+    //Example
+    const tag1 = document.querySelector('body') 
+    const tag2 = document.querySelector('input') 
+
+    //How to select value inside from the  input element
+    //First Select the Input Tag
+    const inputname = document.querySelector('input')
+    //Fetch the Value
+    const data = inputname.value
+
+    //////////////////////////////////////Creating the element/////////////////////////////////////////////////////////////////////////
+
+    const create = document.createElement('tagname')
+    //Example =>  Create a div element 
+    const send = document.createElement('div')
+
+    //How to insert the Value inside div 
+    tagname.innerHTML = 'jo bhi likhna ho'
+    //Example => div ke andar Tumhe apna name likhna hai 
+    send.innerHTML = 'Chitranshi'
+
+    ////////////////////////////////////Appened the Tag Inside another Tag ///////////////////////////////////////////////////////////////
+
+    //Example => Jaise body ke andar Tumhe div dalna hai jisme tumne apna naam likha hai 
+    //Step 1 => pehle Body Fetch karke lao
+    const body = document.querySelector('body')
+
+    //Step 2 => Tumhe div dalna hai jo ki create element section me create kiya hai (upar) (uska name send hai)
+    // kiske_tag_ke_andar_dalna_hai.appendChild(kya_dalna_hai)   
+    //Body (jo ki fetch kar liya) ke andar send(jo ki upar create karke uske andar tumhara name daal diya) dalna hai 
+    body.appendChild(send)
+
+    //////////////////////////////////How to set Style in tags///////////////////////////////////////////////////////////////////////////////////////
+    //Example ==> ek tag hai h1 wo create karna hai aur uske andar AI/ML likhna hai
+    //Fir uske color ko red and background color ko black karna hai 
+
+    //Step1 Create Element
+    const h1 = document.createElement('h1')
+    //Step2 Insert Value
+    h1.innerHTML='AI/ML'
+    //Step3 Styling
+    h1.style.color='red'
+    h1.style.backgroundColor='black'
+    //Step4 Is element ko body me append karna hai 
+    document.querySelector('body').appendChild(h1)
+   
+    //////////////////////////////////How to set function id class to an element//////////////////////////////////////////////////////
+
+    // Example1 => ek element hai button uspar function banana hai Delete 
+    
+    //Step1 Create Element and uska name delete rakhna hai 
+    const button = document.createElement('button')
+    button.innerHTML='Delete'
+
+    //Step2 => Function add karna hai Delete jo ki jab call hoga jab button par click kare
+    //kis_tag_par_event_lagana_hai.setAttributes('konsa_event_lagana_hai',wo_event_hone_par_konsa_function_chalega)
+    //Button par lagana hai onclick event and wo trigger hone par Delete function chale
+
+    button.setAttribute('onclick','Delete()')
+
+    //Example2 => agar class ya id set karni ho element par to ?
+    
+    //Button par id set karni hai btn
+    button.setAttribute('id','btn') //Same for class and ye button upar maine create kiya hai 
+
+    //Button ko body me appened kar dena 
+    document.querySelector('body').appendChild(button)
+
+    ////////////////////////////////How to Remove Element///////////////////////////////////////////////////////////////////
+    //Example => Jaise suppose karo do tags hai h1 and button and wo dono div tag ke andara hai
+    // div => {h1,button}
+    //Mughe h1 ko delete karna hai 
+    
+    //Step1 Sabse pehle jisko delete karna hai usko fetch karo
+    const h1_ko_karna_hai_delete = document.querySelector('h1')
+    //Step2 Jisko delete karna hai uske parent element ko nikalo
+    const main_parent_hu = h1_ko_karna_hai_delete.parentElement
+    //Ab parent element jo hai wo main_parent_hu ke andar pda hai 
+    //h1 jo hai wo parent ka child hai yani ab ek command hoti hai 
+    // jo_bhi_parent_hai.removeChild(child_jisko_delete_karna_hai)
+    main_parent_hu.removeChild(h1_ko_karna_hai_delete)
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  </script>
+</body>
+</html>
