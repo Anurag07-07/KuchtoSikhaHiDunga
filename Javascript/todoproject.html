@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Todo List</h1>
+  <input type="text">
+  <button onclick="AddTodo()">Add Task</button>
+  <div id="todo"></div>
+  <script>
+    let Todo = []
+    function AddTodo(){
+      //Fetch Input
+      const input = document.querySelector('input')
+      //Extract Value
+      let data = input.value
+      //Store in Object
+      let obj = {
+        todo:data
+      }
+      //Push Object to Todo
+      Todo.push(obj)
+      Render()
+    }
+
+    function createElem(data,i){
+      const div = document.createElement('div')
+      const span = document.createElement('span')
+      const button = document.createElement('button')
+      span.innerHTML = data
+      button.innerHTML = "Delete"
+      button.setAttribute('onclick',"DeleteTodo("+i+")")
+      div.setAttribute("id",i)
+      div.appendChild(span)
+      div.appendChild(button)
+      return div
+    }
+
+    function Render(){
+      let todo1 = document.querySelector('#todo')
+      todo1.innerHTML = ""
+      for (let i = 0; i < Todo.length; i++) {
+        let data_value = createElem(Todo[i].todo,i);
+        todo1.appendChild(data_value)
+        document.querySelector('body').appendChild(todo1)
+      }
+    }
+
+    function DeleteTodo(i){
+       Todo.splice(i,1)
+       Render()     
+    }
+  </script>
+  <script src="./practice.js"></script>
+</body>
+</html>
