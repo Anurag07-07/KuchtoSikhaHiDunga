@@ -125,19 +125,19 @@ console.log("Hello");
 // }
 // obj['name'] = 45
 
-interface Guitarist1{
-  name:string,
-  active:boolean,  //Question symbol is used to make any property Optional
-  albums:(string|number)[]
-}
+// interface Guitarist1{
+//   name:string,
+//   active:boolean,  //Question symbol is used to make any property Optional
+//   albums:(string|number)[]
+// }
 
 
 
-let JP ={
-  name:"Jimmy",
-  active:true,
-  albums:['I','II','IV']
-}
+// let JP ={
+//   name:"Jimmy",
+//   active:true,
+//   albums:['I','II','IV']
+// }
 
 // evh = JP  //Both are equal until I don't remove any property
 // evh.years //we can't add any property also
@@ -152,3 +152,179 @@ let JP ={
 
 // const Greeting = greetGuitarist(JP)
 // console.log(Greeting);
+
+//Rest Parameters
+
+// const total = (...nums:number[]):number => {
+//   return nums.reduce((prev,current)=>prev+current,0)  //Here 0 is initial value of accumulator or sum
+// }
+// logMsg(total(1,2,3,4,5))
+
+// const total1 = (a:number,b:number,...nums:number[]):number => {   //nums array contain all value except first two
+//   return nums.reduce((prev,current)=>prev+current,0)  //Here 0 is initial value of accumulator or sum
+// }
+// logMsg(total1(1,2,3,4,5))
+
+// //Never Type 
+// const createError = (errMsg:string):never=>{
+//   throw new Error(errMsg)
+// }
+
+//Type Aliases
+// type stringNumber = string | number
+// type stringNumberArray = (string | number)[]
+
+// type Guitarist = {
+//   name?:string,
+//   active:boolean,
+//   albums:stringNumberArray
+// }
+
+// type UserID = stringNumber
+
+// //Type Aliases is not applicable on interface
+
+// ///////////////////////////////Literal Types///////////////////////////////
+// let Myname:'Dave' //Now we can't change the name
+// Myname = "John" //Not applicable
+
+// let name1: 'Anurag' | 'Aniket' | 'Aditya' //No  oter name will be accepted in name1 variable
+// let name1 = 'Anurag'
+
+
+// const total = (a:number,b:number,...c:number[])=>{
+//   console.log(a);
+//   console.log(b);
+//   console.log(c);
+//   return; 
+// }
+
+// const ans = total(1,2,3,4,5)
+// console.log(ans);
+
+
+// interface IName{
+//   name:string
+// }
+
+// type IName1 = {
+//   name:string
+// }
+
+//Enums
+
+// enum (short for enumeration) is a special TypeScript feature that lets you define a set of named constants.
+// It’s useful when you have a fixed group of related values — like days of the week, roles, states, etc.
+
+
+// Why use enums
+// Gives meaningful names to numeric or string constants.
+// Improves readability and type safety.
+
+// enum Direction {
+//   Up,    // 0
+//   Down,  // 1
+//   Left,  // 2
+//   Right  // 3
+// }
+
+// let move: Direction = Direction.Up;  
+// console.log(move); // 0
+
+// enum Direction {
+//   Up = 1,
+//   Down,
+//   Left,
+//   Right
+// }
+
+// console.log(Direction[1]); // "Up"
+
+// enum Grade {
+//   U=54,D,C,B,A  //We can start with any value
+// }
+// console.log(Grade['U']);
+// console.log(Grade['B']);
+// console.log(Grade['A']);
+
+
+// Question 1 – Working with Arrays and Tuples
+// Create:
+// An array students that contains strings only.
+// A tuple studentInfo that contains [string, number, boolean].
+// Add a few elements to the array and tuple, then print them.
+// Also try to assign the tuple to another variable of a compatible type and explain why it works or not.
+
+// Q2 Define a type called Movie and an interface called Song.
+// Movie should have title:string, released:number, and genres:string[].
+// Song should have name:string, optional artist?:string, and duration:number.
+// Create objects from each and write a function to print their details.
+
+// Q3Create an enum Days with values (Sunday=1, Monday, Tuesday, …).
+// Write a function getDayMessage(day:Days) which prints a custom message based on the day.
+// Call this function for different enum values.
+
+// enum Days{
+//   Sunday,
+//   Monday,
+//   Tuesday,
+//   Wednesday,
+//   Thursday,
+//   Friday,
+//   Saturday
+// }
+
+
+// function getDayMessage(day:Days){
+//   if (day === Days.Sunday || day === Days.Saturday) {
+//     console.log("It Weekend");
+//   }else{
+//     console.log("Its Working Day");
+//   }
+// }
+
+// getDayMessage(Days.Sunday)
+// getDayMessage(Days.Monday)
+
+// Q4 Create a function logArtist which accepts either a Guitarist type (from your code) or a Singer interface:
+// interface Singer {
+//   name: string;
+//   songs: (string|number)[];
+// }
+// Inside the function, print the name in uppercase and the total number of songs/albums.
+
+type stringNumberArray = (string | number)[]
+
+type Guitarist = {
+  name?:string,
+  active:boolean,
+  albums:stringNumberArray
+}
+interface Singer {
+  name: string;
+  songs: (string|number)[];
+}
+
+const obj1:Guitarist = {
+  name:"Anurag",
+  active:true,
+  albums:["5160",7854]
+}
+
+const obj2:Singer = {
+  name:"Anurag",
+  songs:["ABC"]
+}
+
+function logArtist(obj:Guitarist | Singer){
+  console.log(`The Name is ${obj.name?.toUpperCase()}`);
+  if ("albums" in obj) {
+    console.log(obj.albums);
+  }
+
+  if ("songs" in obj) {
+    console.log(obj.songs);
+  }
+}
+
+logArtist(obj2)
