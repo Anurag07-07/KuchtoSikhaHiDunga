@@ -111,3 +111,155 @@
 // logArtist(guitarist);
 // logArtist(singer);
 
+
+// Q1
+// const checkEligibility = (age: number | string): string => {
+//   const numAge = Number(age);
+
+//   if (numAge >= 21) {
+//     return "Can Vote and Drive";
+//   } else if (numAge >= 18) {
+//     return "Can Vote but not Drive";
+//   } else {
+//     return "Cannot Vote";
+//   }
+// };
+
+// console.log(checkEligibility(22));   // Can Vote and Drive
+// console.log(checkEligibility("19")); // Can Vote but not Drive
+// console.log(checkEligibility(15));   // Cannot Vote
+
+
+// Q2
+// interface Person {
+//   name: string;
+//   age: number;
+//   introduce(): string;
+// }
+
+// class Employee implements Person {
+//   name: string;
+//   age: number;
+//   department: string;
+
+//   constructor(name: string, age: number, department: string) {
+//     this.name = name;
+//     this.age = age;
+//     this.department = department;
+//   }
+
+//   introduce(): string {
+//     return `Hi, I'm ${this.name}, working in ${this.department} department`;
+//   }
+// }
+
+// class Manager extends Employee {
+//   teamSize: number;
+
+//   constructor(name: string, age: number, department: string, teamSize: number) {
+//     super(name, age, department);
+//     this.teamSize = teamSize;
+//   }
+
+//   teamReport(): string {
+//     return `Manager ${this.name} has ${this.teamSize} employees`;
+//   }
+// }
+
+// const emp1 = new Employee("Anurag", 21, "Software");
+// console.log(emp1.introduce());
+
+// const mgr1 = new Manager("John", 35, "IT", 10);
+// console.log(mgr1.introduce());
+// console.log(mgr1.teamReport());
+
+
+// abstract class Shape {
+//   abstract area(): number;
+
+//   describe(): string {
+//     return "This is a shape";
+//   }
+// }
+
+// class Rectangle extends Shape {
+//   width: number;
+//   height: number;
+
+//   constructor(width: number, height: number) {
+//     super();
+//     this.width = width;
+//     this.height = height;
+//   }
+
+//   area(): number {
+//     return this.width * this.height;
+//   }
+// }
+
+// class Circle extends Shape {
+//   radius: number;
+
+//   constructor(radius: number) {
+//     super();
+//     this.radius = radius;
+//   }
+
+//   area(): number {
+//     return Math.PI * this.radius * this.radius;
+//   }
+// }
+
+// const rect = new Rectangle(10, 20);
+// console.log(rect.describe());      // "This is a shape"
+// console.log("Rectangle Area:", rect.area());
+
+// const circle = new Circle(7);
+// console.log(circle.describe());    // "This is a shape"
+// console.log("Circle Area:", circle.area());
+
+
+// type BasicUser = {
+//   name: string;
+//   email: string;
+// };
+
+// type AdminUser = {
+//   role: string;
+//   permissions: string[];
+// };
+
+// type SuperUser = BasicUser & AdminUser;
+
+// const superUsers: SuperUser[] = [
+//   { name: "Anurag", email: "anurag@test.com", role: "admin", permissions: ["read", "write", "delete"] },
+//   { name: "Aniket", email: "aniket@test.com", role: "admin", permissions: ["read", "write"] },
+//   { name: "Ravi", email: "ravi@test.com", role: "superadmin", permissions: ["delete", "write"] },
+// ];
+
+// function filterDeleteUsers(users: SuperUser[]): SuperUser[] {
+//   return users.filter(u => u.permissions.includes("delete"));
+// }
+
+// console.log(filterDeleteUsers(superUsers));
+
+
+// function mergeObjects<T, U>(obj1: T, obj2: U): T & U {
+//   return { ...obj1, ...obj2 };
+// }
+
+// interface User {
+//   name: string;
+//   age: number;
+// }
+
+// interface Address {
+//   city: string;
+//   pincode: number;
+// }
+
+// const user: User = { name: "Anurag", age: 21 };
+// const address: Address = { city: "Delhi", pincode: 110001 };
+
+// const merged = mergeObjects(user, address);
+// console.log(merged); // {name:"Anurag", age:21, city:"Delhi", pincode:110001}

@@ -545,6 +545,46 @@ evh = JP  //Both are equal until I don't remove any property
 
 // console.log(`The Total age is ${sum}`);
 
+/*
+Q1
+Voting System Upgrade (Union + Type Narrowing)
+एक फ़ंक्शन checkEligibility बनाइए जो age को number | string दोनों रूप में ले।
+अगर age ≥ 21 है तो "Can Vote and Drive" return करे।
+अगर age ≥ 18 है तो "Can Vote but not Drive" return करे।
+अगर age < 18 है तो "Cannot Vote" return करे।
+Hint: Number(age) और Type Narrowing का इस्तेमाल करें।
+
+Q2
+Interface + Inheritance (Company Hierarchy)
+एक Person interface बनाइए जिसमें name, age, और introduce() method हो।
+एक Employee class बनाइए जो Person implement करे। उसमें department property भी जोड़िए।
+एक Manager class बनाइए जो Employee से extend हो और उसमें teamSize property हो और नया method teamReport() return करे – "Manager <name> has <teamSize> employees".
+फिर इन classes का object बनाइए और methods call कीजिए।
+
+Q3
+Abstract Class + Implementation
+एक abstract class Shape बनाइए जिसमें:
+एक abstract method area(): number हो।
+एक non-abstract method describe() हो जो "This is a shape" return करे।
+फिर Rectangle class बनाइए जो Shape extend करे और area calculate करे।
+फिर Circle class भी बनाइए।
+Objects बनाकर area() और describe() दोनों call कीजिए।
+
+Q4
+दो type बनाइए BasicUser और AdminUser।
+BasicUser में name और email हो।
+AdminUser में role और permissions array हो।
+SuperUser type बनाइए जो दोनों का intersection हो।
+SuperUser की array बनाकर एक function लिखिए जो सिर्फ उन superusers को filter करे जिनके पास "delete" permission हो।
+
+Q5
+एक generic function mergeObjects<T, U>(obj1:T,obj2:U) लिखिए जो दो objects को merge करके return करे।
+फिर इसका इस्तेमाल दो अलग interface के objects (जैसे User और Address) merge करने के लिए कीजिए।
+Example result: {name:"Anurag",age:21,city:"Delhi",pincode:110001}
+*/
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Generics (Not needed here unless you want to generalize the function for any type)
 
