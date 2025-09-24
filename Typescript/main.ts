@@ -537,6 +537,23 @@ evh = JP  //Both are equal until I don't remove any property
 //   name:string,age:number
 // }
 
+// interface Name{
+//   name:string,
+//   age:number
+// }
+
+// interface User extends Name{
+//   firstname:string,
+//   lastname:string
+// }
+
+// let U:User = {
+//   name:"DSADAS",
+//   age:45,
+//   firstname:"Anurag",
+//   lastname:"raj"
+// }
+
 // function addTheAge(user1:User,user2:User){
 //   return user1.age+user2.age
 // }
@@ -546,6 +563,7 @@ evh = JP  //Both are equal until I don't remove any property
 // console.log(`The Total age is ${sum}`);
 
 /*
+
 Q1
 Voting System Upgrade (Union + Type Narrowing)
 एक फ़ंक्शन checkEligibility बनाइए जो age को number | string दोनों रूप में ले।
@@ -583,11 +601,9 @@ Q5
 Example result: {name:"Anurag",age:21,city:"Delhi",pincode:110001}
 */
 
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Generics (Not needed here unless you want to generalize the function for any type)
-
 // Define a User interface
 // interface User {
 //   id: number;
@@ -597,8 +613,12 @@ Example result: {name:"Anurag",age:21,city:"Delhi",pincode:110001}
 //   password: string;  
 // }
 
-// // Select only fields to be updated
+// Select only fields to be updated
 // type UpdateProps = Pick<User, 'name' | 'email' | 'password'>;
+// type UpdateProps = Pick<User,'name' | 'email' | 'password'>
+// type UpdateBodyProps = Partial<UpdateProps>
+
+
 
 // // Make them optional (user can provide some or all)
 // type UpdatePropsOptional = Partial<UpdateProps>;
@@ -617,6 +637,16 @@ Example result: {name:"Anurag",age:21,city:"Delhi",pincode:110001}
 //   position:string
 // }
 
+// interface IName{
+//   name:string,
+//   age:number
+// }
+
+// let obj:Readonly<IName> = {
+//   name:"Anurag",
+//   age:21
+// }
+
 // //This is use when we have to apply readonly on whole object
 // let obj:Readonly<OBJ> = {
 //   name:"Anurag",
@@ -626,7 +656,7 @@ Example result: {name:"Anurag",age:21,city:"Delhi",pincode:110001}
 // // obj.name = "Aniket"  //Not Possible
 
 // interface User{
-//   id:string,
+//   id:number,
 //   username:string
 // }
 
@@ -634,16 +664,22 @@ Example result: {name:"Anurag",age:21,city:"Delhi",pincode:110001}
 //   [key:string]:User
 // }
 
-// const users:Users  = {
+// const nmae = {
+//   name:"Anurag"
+// }
+
+// const users = {
 //   "ras@qd1":{
-//     id:"ras@qd1",
+//     id:1,
 //     username:'Anurag'
 //   },
 //   "ras1dr@":{
-//     id:"ras1dr@",
+//     id:2,
 //     username:'Aniket'
 //   }
 // }
+
+
 
 //Records and Maps
 
@@ -666,6 +702,23 @@ Example result: {name:"Anurag",age:21,city:"Delhi",pincode:110001}
 //   }
 // }
 
+// interface User{
+//   name:string,
+//   age:number
+// }
+
+// type RecordType =  Record<number,User>
+
+// const obj:RecordType = {
+//   1:{
+//     name:"Anurag",
+//     age:21
+//   }
+// }
+
+// const map1 = new Map<number,User>()
+// map1.set(1,{name:"Anurag",age:21})
+
 
 //Another way to create Object
 
@@ -673,6 +726,7 @@ Example result: {name:"Anurag",age:21,city:"Delhi",pincode:110001}
 //   name:string,
 //   age:number
 // }
+
 // // new Map <typeof key,typeof Value>
 // const users = new Map<string,User>()
 // //variable_name.set(keyof,value)
@@ -682,6 +736,8 @@ Example result: {name:"Anurag",age:21,city:"Delhi",pincode:110001}
 // const user = users.get('ras12')
 // users.delete('ras13')
 
+// type EventType = 'dance' | 'music' | 'something'
+// type ExcludeType = Exclude<EventType,'something'>
 
 // type EventType = 'click' | 'scroll' | 'mousemove'
 // type ExcludeEvent = Exclude<EventType,'scroll'>;
