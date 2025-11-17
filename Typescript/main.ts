@@ -120,7 +120,7 @@ interface Guitarist1{
   albums:(string|number)[]
 }
 
-let evh:Guitarist1 = {
+let evh = {
   name:"Eddie",
   active:false,
   albums:[1984,5150,'OU812']

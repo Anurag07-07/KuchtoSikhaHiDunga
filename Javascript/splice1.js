@@ -13,8 +13,12 @@
 // console.log(obj['name']);
 
 
-function sum(...a){
-  console.log(a); 
-}
+// function sum(...a){
+//   console.log(a); 
+// }
 
-sum(1,2,3,4,5)
+// sum(1,2,3,4,5)
+
+
+console.log("5"+5);
+console.log("5"-5);
